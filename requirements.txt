@@ -4,3 +4,4 @@ transformers
 PyMuPDF 
 pytesseract 
 pillow
+tensorflow
