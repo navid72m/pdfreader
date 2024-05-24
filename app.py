@@ -1,5 +1,7 @@
 import streamlit as st
 from PyPDF2 import PdfReader
+import pytesseract
+from PIL import Image
 import fitz
 import io
 
