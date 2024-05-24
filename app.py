@@ -35,7 +35,7 @@ def find_most_relevant_context(contexts, question, max_features=10000):
 
 API_URL = "https://api-inference.huggingface.co/models/google/gemma-7b"
 headers = {"Authorization": f"Bearer {my_token}"}
-pipe = pipeline("text-generation", model="mistralai/Mixtral-8x7B-v0.1")
+pipe = pipeline("text-generation", model="mistralai/Mixtral-8x7B-v0.1", token = my_token)
 
 def query(payload):
 	# response = requests.post(API_URL, headers=headers, json=payload)
