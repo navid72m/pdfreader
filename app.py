@@ -37,9 +37,7 @@ def query(payload):
 	response = requests.post(API_URL, headers=headers, json=payload)
 	return response.json()
 	
-output = query({
-	"inputs": instruction,
-})
+
 
 
 # Mock function for answering questions from the PDF
@@ -47,7 +45,7 @@ output = query({
 def answer_question_from_pdf(pdf_text, question):
     # This function should return the answer to the question based on the PDF content
     # Here we just return a mock response
-    return f"Answer to your question: '{question}' based on the PDF content."
+    return query(pdf_text+" "+ question)
 
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_file):
