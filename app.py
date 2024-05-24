@@ -30,7 +30,7 @@ def find_most_relevant_context(contexts, question, max_features=10000):
 
 
 
-API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2"
+API_URL = "https://api-inference.huggingface.co/models/google/gemma-7b"
 headers = {"Authorization": f"Bearer {my_token}"}
 
 def query(payload):
