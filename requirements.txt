@@ -5,3 +5,4 @@ PyMuPDF
 pytesseract 
 pillow
 tensorflow
+pytorch
