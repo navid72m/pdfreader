@@ -10,8 +10,8 @@ import os
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from datasets import load_dataset
-from transformers import AutoTokenizer, AutoModelForCausalLM
+
+
 my_token = os.getenv('my_repo_token')
 def find_most_relevant_context(contexts, question, max_features=10000):
     # Vectorize contexts and question with limited features
