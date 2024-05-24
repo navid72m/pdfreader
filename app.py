@@ -50,14 +50,25 @@ def answer_question_from_pdf(pdf_text, question):
 
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_file):
-    pdf_reader = PdfReader(pdf_file)
-    pdf_text = ""
+    # Open the PDF file
+    pdf_document = fitz.open(pdf_file)
+    
     pdf_arr = []
-    for page_num in range(len(pdf_reader.pages)):
-        pdf_text = pdf_reader.pages[page_num].extract_text()
+    
+    # Iterate through each page
+    for page_num in range(len(pdf_document)):
+        # Get the page
+        page = pdf_document.load_page(page_num)
+        
+        # Get the page as an image
+        pix = page.get_pixmap()
+        img = Image.open(io.BytesIO(pix.tobytes()))
+        
+        # Perform OCR on the image
+        pdf_text = pytesseract.image_to_string(img)
         pdf_arr.append(pdf_text)
+    
     return pdf_arr
-
 # Streamlit app
 st.title("PDF Explorer")
 
