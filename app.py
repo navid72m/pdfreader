@@ -4,7 +4,7 @@ import pytesseract
 from PIL import Image
 import fitz
 import io
-
+from transformers import pipeline
 import requests
 import os
 
@@ -35,10 +35,13 @@ def find_most_relevant_context(contexts, question, max_features=10000):
 
 API_URL = "https://api-inference.huggingface.co/models/google/gemma-7b"
 headers = {"Authorization": f"Bearer {my_token}"}
+pipe = pipeline("text-generation", model="mistralai/Mixtral-8x7B-v0.1")
 
 def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
+	# response = requests.post(API_URL, headers=headers, json=payload)
+    
+	# return response.json()
+    return pipe(payload)
 	
 
 
