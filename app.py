@@ -45,7 +45,8 @@ def query(payload):
 def answer_question_from_pdf(pdf_text, question):
     # This function should return the answer to the question based on the PDF content
     # Here we just return a mock response
-    return query(pdf_text+" "+ question)
+ 
+    return query(   {"inputs": pdf_text+" "+ question,})
 
 # Function to extract text from PDF
 def extract_text_from_pdf(pdf_file):
