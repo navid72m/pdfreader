@@ -1,3 +1,6 @@
 PyPDF2
 scikit-learn
 transformers
+PyMuPDF 
+pytesseract 
+pillow
